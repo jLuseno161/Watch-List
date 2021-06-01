@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+
+{% block content %}
+
+<!-- <h3> Popular Movies</h3> -->
+<h2 style="color:navy"> Popular Movies</h2>
+<ul>
+    {{ macro.displayMovieList(popular)}}
+</ul>
+<!-- Upcoming movie  -->
+<h2 style="color:green"> Upcoming Movies </h2>
+<ul>
+    {{ macro.displayMovieList(upcoming)}}
+</ul>
+<!-- Now showing movie -->
+<h2 style="color:red">Now Showing</h2>
+<ul>
+    {{ macro.displayMovieList(now_showing)}}
+</ul>
+
+{% endblock%}

@@ -1,0 +1,14 @@
+{% macro displayMovieList(movie_list) %}
+
+{% for movie in movie_list %}
+<div style="width: 50%; font-size: larger;">
+    <li>
+        <h4 style="color:purple">{{ movie.title}}</h4>
+    </li>
+    <p style="text-align: justify;">{{ movie.overview }}</p>
+    <p>{{ movie.vote_count}}</p>
+</div>
+
+{% endfor %}
+
+{% endmacro %}
