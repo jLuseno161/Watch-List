@@ -12,6 +12,7 @@ app.config.from_object(config_options['development'])
 # app.config.from_object(DevConfig)
 app.config.from_pyfile('config.py')
 
+from app import error
 from app import views
 
 # Initializing Flask Extensions
