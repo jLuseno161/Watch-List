@@ -4,8 +4,6 @@ import json
 # Movie = movie.Movie
 from .models.movie import Movie
 
-
-
 # Getting api key
 api_key = app.config['MOVIE_API_KEY']
 
@@ -36,10 +34,8 @@ def get_movies(category):
 def process_results(movie_list):
     '''
     Function  that processes the movie result and transform them to a list of Objects
-
     Args:
         movie_list: A list of dictionaries that contain movie details
-
     Returns :
         movie_results: A list of movie objects
     '''
@@ -81,8 +77,10 @@ def get_movie(id):
 
     return movie_object
 
+
 def search_movie(movie_name):
-    search_movie_url = 'https://api.themoviedb.org/3/search/movie?api_key={}&query={}'.format(api_key,movie_name)
+    search_movie_url = 'https://api.themoviedb.org/3/search/movie?api_key={}&query={}'.format(
+        api_key, movie_name)
     with urllib.request.urlopen(search_movie_url) as url:
         search_movie_data = url.read()
         search_movie_response = json.loads(search_movie_data)
@@ -92,6 +90,5 @@ def search_movie(movie_name):
         if search_movie_response['results']:
             search_movie_list = search_movie_response['results']
             search_movie_results = process_results(search_movie_list)
-
 
     return search_movie_results
